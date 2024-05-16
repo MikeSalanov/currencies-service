@@ -1,6 +1,5 @@
 const router = require("express").Router();
 
-const { raw } = require("express");
 const { Currency } = require("../db/models");
 
 router.get("/currencies", async (req, res) => {

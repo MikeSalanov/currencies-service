@@ -5,15 +5,12 @@ const serverConfig = require("./serverConfig/serverConfig");
 const app = express();
 const PORT = process.env.PORT || 4001;
 
-// const errorMiddleware = require("./middlewares/error-middleware");
-
-
 
 serverConfig(app);
 
-const allCururrenciesRouter = require('./routers/api.currencies.router')
- 
-app.use("/currencies-service", allCururrenciesRouter);
-// app.use();
+const allCururrenciesRouter = require("./routers/api.currencies.router");
+const cururrenciesPairsRouter = require("./routers/api.currencies-pairs.router");
+
+app.use("/currencies-service", allCururrenciesRouter, cururrenciesPairsRouter);
 
 app.listen(PORT, () => console.log(`Server is started on PORT: ${PORT}`));
